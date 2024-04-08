@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+			crossorigin="anonymous"
+		/>
+		<link rel="icon" type="image/x-icon" href="./favicon.ico" />
+		<title>JavaScript Countdown Timer</title>
+		<style>
+			* {
+				box-sizing: border-box;
+				padding: 0;
+				margin: 0;
+			}
+
+			body {
+				width: 100%;
+				min-height: 100vh;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				gap: 10px;
+				background-color: #eeeeee;
+				padding: 30px;
+				color: #627254;
+			}
+
+			h1 {
+				font-size: 4rem;
+			}
+
+			input {
+				width: fit-content !important;
+				font-size: 2.5rem !important;
+			}
+
+			.container {
+				width: 60%;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				gap: 40px;
+				padding: 40px;
+			}
+
+			.timer {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 25px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>The Countdown Timer</h1>
+
+		<div class="container">
+			<div class="timer">
+				<div class="btn btn-dark position-relative">
+					<h1 id="hour">00</h1>
+					<span
+						class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-light"
+					>
+						hr
+					</span>
+				</div>
+				<div class="btn btn-dark position-relative">
+					<h1 id="minute">00</h1>
+					<span
+						class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-light"
+					>
+						min
+					</span>
+				</div>
+				<div class="btn btn-dark position-relative">
+					<h1 id="second">00</h1>
+					<span
+						class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-light"
+					>
+						sec
+					</span>
+				</div>
+			</div>
+
+			<h2>Set Timer</h2>
+			<div class="timer">
+				<div class="position-relative">
+					<input
+						class="form-control form-control-lg text-center"
+						type="number"
+						max="12"
+						min="0"
+						placeholder="00"
+						aria-label="hrInput"
+						id="hrInput"
+					/>
+					<span
+						class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-light"
+					>
+						hr
+					</span>
+				</div>
+				<div class="position-relative">
+					<input
+						class="form-control form-control-lg text-center"
+						type="number"
+						max="59"
+						min="0"
+						placeholder="00"
+						aria-label="minInput"
+						id="minInput"
+					/>
+					<span
+						class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-light"
+					>
+						min
+					</span>
+				</div>
+				<div class="position-relative">
+					<input
+						class="form-control form-control-lg text-center"
+						type="number"
+						max="59"
+						min="0"
+						placeholder="00"
+						aria-label="secInput"
+						id="secInput"
+					/>
+					<span
+						class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-light"
+					>
+						sec
+					</span>
+				</div>
+			</div>
+
+			<div id="prompt"></div>
+
+			<div
+				class="btn-group mt-3"
+				role="group"
+				aria-label="Basic radio toggle button group"
+			>
+				<input
+					type="radio"
+					class="btn-check"
+					name="btnradio"
+					id="stopBtn"
+					autocomplete="off"
+					onclick="stop()"
+				/>
+				<label class="btn btn-outline-danger" for="stopBtn">
+					<i class="bi bi-stop-fill" style="font-size: 40px"></i>
+				</label>
+
+				<input
+					type="radio"
+					class="btn-check"
+					name="btnradio"
+					id="playBtn"
+					autocomplete="off"
+					onclick="play()"
+				/>
+				<label class="btn btn-outline-success" for="playBtn">
+					<i class="bi bi-play-fill" style="font-size: 40px"></i>
+				</label>
+
+				<input
+					type="radio"
+					class="btn-check"
+					name="btnradio"
+					id="pauseBtn"
+					autocomplete="off"
+					onclick="pause()"
+				/>
+				<label class="btn btn-outline-primary" for="pauseBtn">
+					<i class="bi bi-pause-fill" style="font-size: 40px"></i>
+				</label>
+			</div>
+		</div>
+	</body>
+	<script src="./script.js"></script>
+</html>
